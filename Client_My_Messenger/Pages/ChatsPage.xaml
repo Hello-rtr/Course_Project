@@ -1,0 +1,411 @@
+﻿<Page x:Class="Client_My_Messenger.Pages.ChatsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Client_My_Messenger.Pages"
+      xmlns:converters ="clr-namespace:Client_My_Messenger.Converters"
+      mc:Ignorable="d" 
+      Title="Chats"
+      Background="White">
+
+    <Page.Resources>
+        <!-- Конвертеры -->
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <converters:IsOwnMessageConverter x:Key="IsOwnMessageConverter"/>
+        <converters:ReadStatusConverter x:Key="ReadStatusConverter"/>
+        <converters:ReadStatusColorConverter x:Key="ReadStatusColorConverter"/>
+        <converters:UnreadToVisibilityConverter x:Key="UnreadToVisibilityConverter"/>
+
+        <!-- Новые конвертеры для поиска -->
+        <converters:SearchTypeToIconConverter x:Key="SearchTypeToIconConverter"/>
+        <converters:SearchTypeToColorConverter x:Key="SearchTypeToColorConverter"/>
+        <converters:StringToVisibilityConverter x:Key="StringToVisibilityConverter"/>
+        <converters:SimilarityToProgressConverter x:Key="SimilarityToProgressConverter"/>
+
+        <!-- Шаблон для чата с уведомлением -->
+        <DataTemplate x:Key="ChatTemplate">
+            <Border Background="Transparent" Padding="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Margin="0,0,5,0">
+                        <TextBlock Text="{Binding Name}" 
+                                   FontWeight="Bold"
+                                   TextWrapping="Wrap"/>
+                        <TextBlock Text="{Binding ChatType.Name}"
+                                   FontSize="11"
+                                   Foreground="Gray"/>
+                        <TextBlock Text="{Binding UnreadCount, StringFormat='Вам новое сообщение'}"
+                                   FontSize="11"
+                                   Foreground="Fuchsia"
+                                   Visibility="{Binding UnreadCount, Converter={StaticResource UnreadToVisibilityConverter}}"/>
+                    </StackPanel>
+
+                    <!-- Индикатор новых сообщений -->
+                    <Border Grid.Column="1" 
+                            Width="8" 
+                            Height="8" 
+                            CornerRadius="4"
+                            Background="#FF2196F3"
+                            Visibility="{Binding UnreadCount, Converter={StaticResource UnreadToVisibilityConverter}}"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Right">
+                        <Border.Resources>
+                            <Style TargetType="Border">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding UnreadCount}" Value="0">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Resources>
+                    </Border>
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+        <!-- Шаблон для результатов поиска -->
+        <DataTemplate x:Key="SearchResultTemplate">
+            <Border Background="Transparent" Padding="5" Margin="2" Cursor="Hand">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Иконка -->
+                    <Border Grid.Column="0" Width="30" Height="30" CornerRadius="15"
+                            Background="{Binding Type, Converter={StaticResource SearchTypeToColorConverter}}"
+                            Margin="0,0,10,0">
+                        <TextBlock Text="{Binding Type, Converter={StaticResource SearchTypeToIconConverter}}"
+                                   Foreground="White" FontSize="14" 
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+
+                    <!-- Информация -->
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text="{Binding Name}" FontWeight="Bold" TextWrapping="Wrap"/>
+                        <TextBlock Text="{Binding Description}" FontSize="11" Foreground="Gray" TextWrapping="Wrap"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                            <TextBlock Text="{Binding ChatType}" FontSize="10" Foreground="Blue" 
+                                       Visibility="{Binding Type, Converter={StaticResource StringToVisibilityConverter}, ConverterParameter=chat}"/>
+                            <TextBlock Text="{Binding MemberCount, StringFormat='{}Участников: {0}'}" FontSize="10" Foreground="Green"
+                                       Margin="5,0,0,0"
+                                       Visibility="{Binding Type, Converter={StaticResource StringToVisibilityConverter}, ConverterParameter=chat}"/>
+                            <TextBlock Text="{Binding Similarity, StringFormat='{}Схожесть: {0:P0}'}" FontSize="10" Foreground="Orange"
+                                       Margin="5,0,0,0"
+                                       Visibility="{Binding Type, Converter={StaticResource StringToVisibilityConverter}, ConverterParameter=chat}"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Статус -->
+                    <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                        <TextBlock Text="В чате" FontSize="11" Foreground="Green"
+                                   Visibility="{Binding IsJoined, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                        <!-- Индикатор схожести -->
+                        <ProgressBar Width="50" Height="6" Margin="0,2,0,0"
+                                     Value="{Binding Similarity, Converter={StaticResource SimilarityToProgressConverter}}"
+                                     Maximum="100"
+                                     Visibility="{Binding Type, Converter={StaticResource StringToVisibilityConverter}, ConverterParameter=chat}">
+                            <ProgressBar.Style>
+                                <Style TargetType="ProgressBar">
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="Foreground" Value="Orange"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                </Style>
+                            </ProgressBar.Style>
+                        </ProgressBar>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+        <!-- Шаблон для сообщений других пользователей -->
+        <DataTemplate x:Key="OtherMessageTemplate">
+            <Border Margin="5,2,50,2" Padding="8" Background="#FFF0F0F0" CornerRadius="5" HorizontalAlignment="Left">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding User.Name}" 
+                           FontWeight="Bold"
+                           Margin="0,0,5,0"/>
+                        <TextBlock Text="{Binding User.Surname}" 
+                           FontWeight="Bold"/>
+                        <TextBlock Text=": " 
+                           FontWeight="Bold"/>
+                    </StackPanel>
+                    <TextBlock Text="{Binding Message.Data}" 
+                       TextWrapping="Wrap"
+                       Margin="0,2,0,0"/>
+                    <!-- Удален блок с галочками для чужих сообщений -->
+                    <TextBlock Text="{Binding Message.DateAndTime, StringFormat='{}{0:HH:mm}'}"
+                       FontSize="11"
+                       Foreground="Gray"
+                       HorizontalAlignment="Right"/>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+
+        <!-- Шаблон для собственных сообщений -->
+        <DataTemplate x:Key="OwnMessageTemplate">
+            <Border Margin="50,2,5,2" Padding="8" Background="#FFE3F2FD" CornerRadius="5" HorizontalAlignment="Right">
+                <StackPanel>
+                    <TextBlock Text="{Binding Message.Data}" 
+                       TextWrapping="Wrap"
+                       Margin="0,2,0,0"
+                       HorizontalAlignment="Right"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock Text="{Binding Message.DateAndTime, StringFormat='{}{0:HH:mm}'}"
+                        FontSize="11"
+                        Foreground="Gray"
+                        Margin="0,0,5,0"/>
+                        <!-- Галочки статуса прочтения остаются ТОЛЬКО здесь -->
+                        <TextBlock Text="{Binding Message.IsRead, Converter={StaticResource ReadStatusConverter}}"
+                        FontSize="11"
+                        Foreground="{Binding Message.IsRead, Converter={StaticResource ReadStatusColorConverter}}"/>
+                    </StackPanel>
+                </StackPanel>
+
+            </Border>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Левая панель: Список чатов и поиск -->
+        <Grid Grid.Column="0" Background="#FFF5F5F5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Заголовок -->
+            <Border Grid.Row="0" Background="#FF2196F3" Padding="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" 
+                               Text="{Binding UserName}" 
+                               Foreground="White" 
+                               FontSize="14"
+                               FontWeight="Bold"/>
+
+                    <!-- Переключатель режима поиска -->
+                    <ToggleButton Grid.Column="1" 
+                                  Content="{Binding SearchInfo}"
+                                  IsChecked="{Binding IsGlobalSearchMode}"
+                                  Foreground="White"
+                                  Background="Transparent"
+                                  BorderBrush="White"
+                                  BorderThickness="1"
+                                  Padding="5,2"
+                                  Margin="5,0,0,0"
+                                  ToolTip="Переключить режим поиска"/>
+                </Grid>
+            </Border>
+
+            <!-- Поиск -->
+            <Grid Grid.Row="1" Margin="5" Background="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Grid.Column="0"
+                         Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                         Padding="5"
+                         VerticalContentAlignment="Center"/>
+
+                <Button Grid.Column="1" 
+                        Content="🔍"
+                        Margin="5,0,0,0"
+                        Padding="10,5"
+                        Command="{Binding ExecuteSearchCommand}"
+                        ToolTip="Выполнить поиск"/>
+            </Grid>
+
+            <!-- Информация о режиме поиска -->
+            <Border Grid.Row="2" Background="#FFE8F5E8" 
+                    Padding="5" Margin="5,0,5,5">
+                <TextBlock Text="{Binding SearchInfo}" 
+                           FontSize="11"
+                           Foreground="Green"
+                           HorizontalAlignment="Center"/>
+            </Border>
+
+            <!-- Кнопки действий -->
+            <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="5">
+                <Button Content="Создать чат" 
+                        Margin="2" 
+                        Padding="5,2"
+                        Command="{Binding CreateChatCommand}"
+                        ToolTip="Создать новый чат"/>
+                <Button Content="Пользователи чата" 
+                        Margin="2" 
+                        Padding="5,2"
+                        Command="{Binding ShowChatUsersCommand}"
+                        ToolTip="Показать пользователей выбранного чата"
+                        IsEnabled="{Binding IsChatSelected}"/>
+                <Button Content="Обновить список" 
+                        Margin="2" 
+                        Padding="5,2"
+                        ToolTip="Обновить список чатов" 
+                        Click="RefreshChatsButton_Click"/>
+            </StackPanel>
+
+            <!-- Заголовок списка -->
+            <TextBlock Grid.Row="4" 
+                       Text="{Binding SearchInfo}"
+                       Margin="5,10,5,5"
+                       FontWeight="Bold"
+                       FontSize="12"/>
+
+            <!-- Список чатов/результатов -->
+            <ListBox Grid.Row="5" 
+                     ItemsSource="{Binding CurrentItems}"
+                     SelectedItem="{Binding SelectedItem}"
+                     Background="White"
+                     BorderThickness="0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <ContentControl Content="{Binding}">
+                            <ContentControl.Style>
+                                <Style TargetType="ContentControl">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource ChatTemplate}"/>
+
+                                    <Style.Triggers>
+                                        <!-- Для SearchResult используем SearchResultTemplate -->
+                                        <DataTrigger Binding="{Binding Type}" Value="chat">
+                                            <Setter Property="ContentTemplate" Value="{StaticResource SearchResultTemplate}"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Type}" Value="user">
+                                            <Setter Property="ContentTemplate" Value="{StaticResource SearchResultTemplate}"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Type}" Value="info">
+                                            <Setter Property="ContentTemplate" Value="{StaticResource SearchResultTemplate}"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ContentControl.Style>
+                        </ContentControl>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+
+        <!-- Правая панель: Чат -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Заголовок чата с кнопками -->
+            <Border Grid.Row="0" Background="#FFE3F2FD" Padding="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Orientation="Vertical">
+                        <TextBlock Text="{Binding ChatTitle}" 
+                                   FontSize="16"
+                                   FontWeight="Bold"/>
+                        <TextBlock Text="{Binding SelectedChat.ChatType.Name, StringFormat='{}Тип: {0}'}"
+                                   FontSize="11"
+                                   Foreground="Gray"
+                                   Visibility="{Binding IsChatSelected, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    </StackPanel>
+
+                    <!-- Кнопки действий с чатом -->
+                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                        <Button Content="Пользователи" 
+                            Margin="5,0,0,0"
+                            Padding="5,2"
+                            Command="{Binding ShowChatUsersCommand}"
+                            Visibility="{Binding IsChatSelected, Converter={StaticResource BooleanToVisibilityConverter}}"
+                            ToolTip="Показать пользователей чата"/>
+                        <Button Content="Прочитано" 
+                            Margin="5,0,0,0"
+                            Padding="5,2"
+                            Command="{Binding MarkAsReadCommand}"
+                            Visibility="{Binding IsChatSelected, Converter={StaticResource BooleanToVisibilityConverter}}"
+                            ToolTip="Отметить все сообщения как прочитанные"/>
+                        <Button Content="Выйти" 
+                            Margin="5,0,0,0"
+                            Padding="5,2"
+                            Command="{Binding LeaveChatCommand}"
+                            Visibility="{Binding IsChatSelected, Converter={StaticResource BooleanToVisibilityConverter}}"
+                            ToolTip="Выйти из чата"
+                            IsEnabled="{Binding IsChatSelected}"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- Сообщения -->
+            <ScrollViewer Grid.Row="1" 
+                          VerticalScrollBarVisibility="Auto"
+                          x:Name="MessageScrollViewer">
+                <ItemsControl ItemsSource="{Binding MessageHistory}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <ContentControl Content="{Binding}">
+                                <ContentControl.Style>
+                                    <Style TargetType="ContentControl">
+                                        <Setter Property="ContentTemplate" Value="{StaticResource OtherMessageTemplate}"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Converter={StaticResource IsOwnMessageConverter}}" Value="True">
+                                                <Setter Property="ContentTemplate" Value="{StaticResource OwnMessageTemplate}"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ContentControl.Style>
+                            </ContentControl>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+
+            <!-- Поле ввода -->
+            <Grid Grid.Row="2" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Grid.Column="0" 
+                         Text="{Binding CurrentMessage, UpdateSourceTrigger=PropertyChanged}"
+                         IsEnabled="{Binding IsChatSelected}"
+                         PreviewKeyDown="TextBox_PreviewKeyDown"
+                         VerticalContentAlignment="Center"
+                         Padding="5"
+                         ToolTip="{Binding IsChatSelected, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Введите сообщение|Выберите чат для отправки сообщения'}"/>
+
+                <Button Grid.Column="1" 
+                        Content="Отправить" 
+                        Margin="5,0,0,0"
+                        Command="{Binding SendMessageCommand}"
+                        IsEnabled="{Binding IsChatSelected}"
+                        Padding="10,5"
+                        ToolTip="Отправить сообщение"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Client_My_Messenger/1.0.0": {
+        "runtime": {
+          "Client_My_Messenger.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Client_My_Messenger/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

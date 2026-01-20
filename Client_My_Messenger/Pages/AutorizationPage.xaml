@@ -1,0 +1,92 @@
+﻿<Page x:Class="Client_My_Messenger.Pages.AutorizationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Client_My_Messenger.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AutorizationPage">
+
+    <Grid Background="#FFF0F8FF">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" 
+                        Width="350" Margin="20">
+
+                <!-- Заголовок -->
+                <TextBlock Text="{Binding Title, RelativeSource={RelativeSource AncestorType=Page}}" 
+                           FontSize="24" FontWeight="Bold" 
+                           HorizontalAlignment="Center" Margin="0,0,0,20"
+                           Foreground="#FF2196F3"/>
+
+                <!-- Форма -->
+                <Border Background="White" CornerRadius="10" 
+                        Padding="20" Margin="0,0,0,20"
+                        BorderBrush="#FFE0E0E0" BorderThickness="1">
+                    <StackPanel>
+                        <!-- Логин -->
+                        <TextBlock Text="Логин (3-15 символов)"/>
+                        <TextBox x:Name="LoginText" 
+                                 KeyDown="TextBox_KeyDown"/>
+
+                        <!-- Пароль -->
+                        <TextBlock Text="Пароль (3-20 символов)"/>
+                        <PasswordBox x:Name="PasswordText" 
+                                     KeyDown="TextBox_KeyDown"/>
+
+                        <!-- Имя (только для регистрации) -->
+                        <StackPanel x:Name="NamePanel" Visibility="Collapsed">
+                            <TextBlock Text="Имя*"/>
+                            <TextBox x:Name="NameText" 
+                                     KeyDown="TextBox_KeyDown"/>
+                        </StackPanel>
+
+                        <!-- Фамилия (только для регистрации) -->
+                        <StackPanel x:Name="SurnamePanel" Visibility="Collapsed">
+                            <TextBlock Text="Фамилия"/>
+                            <TextBox x:Name="SurnameText" 
+                                     KeyDown="TextBox_KeyDown"/>
+                        </StackPanel>
+
+                        <!-- Отчество (только для регистрации) -->
+                        <StackPanel x:Name="SecondSurnamePanel" Visibility="Collapsed">
+                            <TextBlock Text="Отчество"/>
+                            <TextBox x:Name="SecondSurnameText" 
+                                     KeyDown="TextBox_KeyDown"/>
+                        </StackPanel>
+
+                        <!-- Кнопка действия -->
+                        <Button x:Name="ActionButton" 
+                                Content="Войти" 
+                                Background="#FF2196F3" 
+                                Foreground="White"
+                                Click="ActionButton_Click"
+                                Margin="5,15,5,5"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Переключение режима -->
+                <Button x:Name="ModeToggleButton" 
+                        Content="Нет аккаунта? Зарегистрироваться" 
+                        Background="Transparent" 
+                        Foreground="#FF2196F3"
+                        BorderThickness="0"
+                        Click="ModeToggleButton_Click"/>
+
+                <!-- Информация -->
+                <TextBlock Text="* - обязательные поля" 
+                           FontSize="12" Foreground="Gray"
+                           HorizontalAlignment="Center" Margin="0,10,0,0"/>
+
+                <!-- Информация о сервере -->
+                <Border Background="#FFF5F5F5" CornerRadius="5" 
+                        Padding="10" Margin="0,20,0,0">
+                    <TextBlock Text="Подключено к серверу" 
+                               FontSize="12" Foreground="Green"
+                               HorizontalAlignment="Center"/>
+                </Border>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
