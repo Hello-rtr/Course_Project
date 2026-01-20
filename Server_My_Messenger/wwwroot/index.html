@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Messenger Server Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-comments"></i>
+                <h1>My Messenger</h1>
+            </div>
+            <div class="server-status">
+                <span class="status-dot active"></span>
+                <span>Сервер активен</span>
+            </div>
+        </header>
+
+        <div class="dashboard">
+            <div class="stats-cards">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Клиенты онлайн</h3>
+                        <div class="stat-value" id="clients-count">0</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Время работы</h3>
+                        <div class="stat-value" id="uptime">00:00:00</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Сообщений сегодня</h3>
+                        <div class="stat-value" id="messages-today">0</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Использование CPU</h3>
+                        <div class="stat-value" id="cpu-usage">0%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="section">
+                    <h2><i class="fas fa-plug"></i> Активные подключения</h2>
+                    <div class="table-container">
+                        <table id="clients-table">
+                            <thead>
+                                <tr>
+                                    <th>Пользователь</th>
+                                    <th>IP Адрес</th>
+                                    <th>Подключен</th>
+                                    <th>Чат</th>
+                                    <th>Действия</th>
+                                </tr>
+                            </thead>
+                            <tbody id="clients-body">
+                                <tr>
+                                    <td colspan="5" style="text-align: center; padding: 40px 20px; color: #718096;">
+                                        <i class="fas fa-spinner fa-spin"></i> Загрузка данных...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="two-columns">
+                    <div class="section">
+                        <h2><i class="fas fa-chart-line"></i> Статистика подключений</h2>
+                        <div class="chart-container">
+                            <canvas id="connections-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2><i class="fas fa-info-circle"></i> Информация о сервере</h2>
+                        <div class="info-list">
+                            <div class="info-item">
+                                <span class="label">Версия сервера:</span>
+                                <span class="value">1.0.0</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">WebSocket Endpoint:</span>
+                                <span class="value endpoint" id="ws-endpoint"></span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Запущен:</span>
+                                <span class="value" id="server-start-time"></span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Лог файл:</span>
+                                <span class="value">
+                                    <a href="#" class="link">
+                                        <i class="fas fa-file-alt"></i> websocket_server_log.txt
+                                    </a>
+                                    (<span id="log-file-size">0 KB</span>)
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>© 2024 My Messenger Server Dashboard | Режим реального времени</p>
+            <div class="controls">
+                <button id="refresh-btn" class="btn">
+                    <i class="fas fa-sync-alt"></i> Обновить
+                </button>
+                <button id="auto-refresh-btn" class="btn btn-secondary">
+                    <i class="fas fa-redo"></i> Автообновление: <span id="auto-refresh-status">Вкл</span>
+                </button>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>
