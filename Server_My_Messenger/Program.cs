@@ -20,7 +20,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Конфигурация подключения к базе данных
 builder.Services.AddDbContext<LocalMessangerDbContext>(options =>
-    options.UseSqlServer("Server=HELLO\\HELLOSQL;Database=LocalMessangerDB;Trusted_Connection=True;TrustServerCertificate=true;"));
+    options.UseSqlServer("Server=sql.ects;Database=LocalMessangerDB;User ID=student_00;Password=student_00;TrustServerCertificate=True;"));
 
 // Регистрация сервисов
 builder.Services.AddScoped<UserService>();

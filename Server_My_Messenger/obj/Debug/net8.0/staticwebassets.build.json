@@ -1,1 +1,77 @@
-{"Version":1,"Hash":"oAqGI3ru1bkniUQxXwGDDnrCTPNHAPKd4rzJ0MkHSqg=","Source":"Server_My_Messenger","BasePath":"_content/Server_My_Messenger","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[{"Name":"Server_My_Messenger\\wwwroot","Source":"Server_My_Messenger","ContentRoot":"C:\\Users\\hello\\OneDrive\\Рабочий стол\\курсовой\\проект\\Server_My_Messenger\\Archive\\Сервер для того который вроде работает\\Server_My_Messenger\\wwwroot\\","BasePath":"_content/Server_My_Messenger","Pattern":"**"}],"Assets":[{"Identity":"C:\\Users\\hello\\OneDrive\\Рабочий стол\\курсовой\\проект\\Server_My_Messenger\\Archive\\Сервер для того который вроде работает\\Server_My_Messenger\\wwwroot\\css\\style.css","SourceId":"Server_My_Messenger","SourceType":"Discovered","ContentRoot":"C:\\Users\\hello\\OneDrive\\Рабочий стол\\курсовой\\проект\\Server_My_Messenger\\Archive\\Сервер для того который вроде работает\\Server_My_Messenger\\wwwroot\\","BasePath":"_content/Server_My_Messenger","RelativePath":"css/style#[.{fingerprint}]?.css","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"d2cze6dmh0","Integrity":"1R1+RiduRulE6J//Ql0i6qg5jvGKvtdOQvd0XvSqlSM=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\css\\style.css","FileLength":7248,"LastWriteTime":"2026-01-15T18:09:21+00:00"},{"Identity":"C:\\Users\\hello\\OneDrive\\Рабочий стол\\курсовой\\проект\\Server_My_Messenger\\Archive\\Сервер для того который вроде работает\\Server_My_Messenger\\wwwroot\\index.html","SourceId":"Server_My_Messenger","SourceType":"Discovered","ContentRoot":"C:\\Users\\hello\\OneDrive\\Рабочий стол\\курсовой\\проект\\Server_My_Messenger\\Archive\\Сервер для того который вроде работает\\Server_My_Messenger\\wwwroot\\","BasePath":"_content/Server_My_Messenger","RelativePath":"index#[.{fingerprint}]?.html","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"sz5ob0shn3","Integrity":"qODJmUnLP0jci0wFnDB8S093rrhhwAScZjAe0no6RxQ=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\index.html","FileLength":6491,"LastWriteTime":"2026-01-15T18:19:03+00:00"},{"Identity":"C:\\Users\\hello\\OneDrive\\Рабочий стол\\курсовой\\проект\\Server_My_Messenger\\Archive\\Сервер для того который вроде работает\\Server_My_Messenger\\wwwroot\\js\\dashboard.js","SourceId":"Server_My_Messenger","SourceType":"Discovered","ContentRoot":"C:\\Users\\hello\\OneDrive\\Рабочий стол\\курсовой\\проект\\Server_My_Messenger\\Archive\\Сервер для того который вроде работает\\Server_My_Messenger\\wwwroot\\","BasePath":"_content/Server_My_Messenger","RelativePath":"js/dashboard#[.{fingerprint}]?.js","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"4hlz9tp28h","Integrity":"iFuaFN94p/PBFQYynLgIQPaFnbn3sLzqbbd2BLy76Hs=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\js\\dashboard.js","FileLength":15228,"LastWriteTime":"2026-01-15T18:19:03+00:00"}],"Endpoints":[{"Route":"css/style.css","AssetFile":"C:\\Users\\hello\\OneDrive\\Рабочий стол\\курсовой\\проект\\Server_My_Messenger\\Archive\\Сервер для того который вроде работает\\Server_My_Messenger\\wwwroot\\css\\style.css","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"7248"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\"1R1+RiduRulE6J//Ql0i6qg5jvGKvtdOQvd0XvSqlSM=\""},{"Name":"Last-Modified","Value":"Thu, 15 Jan 2026 18:09:21 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-1R1+RiduRulE6J//Ql0i6qg5jvGKvtdOQvd0XvSqlSM="}]},{"Route":"css/style.d2cze6dmh0.css","AssetFile":"C:\\Users\\hello\\OneDrive\\Рабочий стол\\курсовой\\проект\\Server_My_Messenger\\Archive\\Сервер для того который вроде работает\\Server_My_Messenger\\wwwroot\\css\\style.css","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"7248"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\"1R1+RiduRulE6J//Ql0i6qg5jvGKvtdOQvd0XvSqlSM=\""},{"Name":"Last-Modified","Value":"Thu, 15 Jan 2026 18:09:21 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"d2cze6dmh0"},{"Name":"label","Value":"css/style.css"},{"Name":"integrity","Value":"sha256-1R1+RiduRulE6J//Ql0i6qg5jvGKvtdOQvd0XvSqlSM="}]},{"Route":"index.html","AssetFile":"C:\\Users\\hello\\OneDrive\\Рабочий стол\\курсовой\\проект\\Server_My_Messenger\\Archive\\Сервер для того который вроде работает\\Server_My_Messenger\\wwwroot\\index.html","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"6491"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\"qODJmUnLP0jci0wFnDB8S093rrhhwAScZjAe0no6RxQ=\""},{"Name":"Last-Modified","Value":"Thu, 15 Jan 2026 18:19:03 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-qODJmUnLP0jci0wFnDB8S093rrhhwAScZjAe0no6RxQ="}]},{"Route":"index.sz5ob0shn3.html","AssetFile":"C:\\Users\\hello\\OneDrive\\Рабочий стол\\курсовой\\проект\\Server_My_Messenger\\Archive\\Сервер для того который вроде работает\\Server_My_Messenger\\wwwroot\\index.html","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"6491"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\"qODJmUnLP0jci0wFnDB8S093rrhhwAScZjAe0no6RxQ=\""},{"Name":"Last-Modified","Value":"Thu, 15 Jan 2026 18:19:03 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"sz5ob0shn3"},{"Name":"label","Value":"index.html"},{"Name":"integrity","Value":"sha256-qODJmUnLP0jci0wFnDB8S093rrhhwAScZjAe0no6RxQ="}]},{"Route":"js/dashboard.4hlz9tp28h.js","AssetFile":"C:\\Users\\hello\\OneDrive\\Рабочий стол\\курсовой\\проект\\Server_My_Messenger\\Archive\\Сервер для того который вроде работает\\Server_My_Messenger\\wwwroot\\js\\dashboard.js","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"15228"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\"iFuaFN94p/PBFQYynLgIQPaFnbn3sLzqbbd2BLy76Hs=\""},{"Name":"Last-Modified","Value":"Thu, 15 Jan 2026 18:19:03 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"4hlz9tp28h"},{"Name":"label","Value":"js/dashboard.js"},{"Name":"integrity","Value":"sha256-iFuaFN94p/PBFQYynLgIQPaFnbn3sLzqbbd2BLy76Hs="}]},{"Route":"js/dashboard.js","AssetFile":"C:\\Users\\hello\\OneDrive\\Рабочий стол\\курсовой\\проект\\Server_My_Messenger\\Archive\\Сервер для того который вроде работает\\Server_My_Messenger\\wwwroot\\js\\dashboard.js","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"15228"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\"iFuaFN94p/PBFQYynLgIQPaFnbn3sLzqbbd2BLy76Hs=\""},{"Name":"Last-Modified","Value":"Thu, 15 Jan 2026 18:19:03 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-iFuaFN94p/PBFQYynLgIQPaFnbn3sLzqbbd2BLy76Hs="}]}]}
+{
+  "Version": 1,
+  "Hash": "uo9wwkhr1VFJUsIchURHpOk40MXR2WKtm/88WQPGd3c=",
+  "Source": "Server_My_Messenger",
+  "BasePath": "_content/Server_My_Messenger",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Server_My_Messenger\\wwwroot",
+      "Source": "Server_My_Messenger",
+      "ContentRoot": "D:\\курсач\\Сервер для того который вроде работает\\Server_My_Messenger\\wwwroot\\",
+      "BasePath": "_content/Server_My_Messenger",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\курсач\\Сервер для того который вроде работает\\Server_My_Messenger\\wwwroot\\css\\style.css",
+      "SourceId": "Server_My_Messenger",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\курсач\\Сервер для того который вроде работает\\Server_My_Messenger\\wwwroot\\",
+      "BasePath": "_content/Server_My_Messenger",
+      "RelativePath": "css/style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style.css"
+    },
+    {
+      "Identity": "D:\\курсач\\Сервер для того который вроде работает\\Server_My_Messenger\\wwwroot\\index.html",
+      "SourceId": "Server_My_Messenger",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\курсач\\Сервер для того который вроде работает\\Server_My_Messenger\\wwwroot\\",
+      "BasePath": "_content/Server_My_Messenger",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "D:\\курсач\\Сервер для того который вроде работает\\Server_My_Messenger\\wwwroot\\js\\dashboard.js",
+      "SourceId": "Server_My_Messenger",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\курсач\\Сервер для того который вроде работает\\Server_My_Messenger\\wwwroot\\",
+      "BasePath": "_content/Server_My_Messenger",
+      "RelativePath": "js/dashboard.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\dashboard.js"
+    }
+  ]
+}
