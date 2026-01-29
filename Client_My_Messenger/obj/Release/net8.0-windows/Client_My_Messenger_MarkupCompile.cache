@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\hello\OneDrive\Рабочий стол\курсовой\проект\Client_My_Messenger\Client_My_Messenger\obj\Release\net8.0-windows\
+E:\курсач\Client_My_Messenger_save_stabil_version\Client_My_Messenger\obj\Release\net8.0-windows\
 Client_My_Messenger
 none
 false
 TRACE;RELEASE;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-C:\Users\hello\OneDrive\Рабочий стол\курсовой\проект\Client_My_Messenger\Client_My_Messenger\App.xaml
-31259459067
+E:\курсач\Client_My_Messenger_save_stabil_version\Client_My_Messenger\App.xaml
+5-1174909337
 
-181186789264
-198338916705
-MainWindow.xaml;Pages\AutorizationPage.xaml;Pages\ChatsPage.xaml;
+32624497258
+198-192518753
+Dialogs\CreateChatDialog.xaml;Dialogs\CreateChatFromSearchDialog.xaml;MainWindow.xaml;Pages\AutorizationPage.xaml;Pages\ChatsPage.xaml;
 
 False
 

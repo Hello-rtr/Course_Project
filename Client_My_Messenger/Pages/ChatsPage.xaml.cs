@@ -1832,7 +1832,7 @@ namespace Client_My_Messenger.Pages
             {
                 Title = "Создать чат",
                 Width = 300,
-                Height = 150,
+                Height = 200,
                 WindowStartupLocation = WindowStartupLocation.CenterOwner,
                 Owner = Window.GetWindow(this)
             };

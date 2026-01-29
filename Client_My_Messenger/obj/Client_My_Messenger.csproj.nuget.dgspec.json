@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hello\\OneDrive\\Рабочий стол\\курсовой\\проект\\Client_My_Messenger_2\\Client_My_Messenger_save_stabil_version_1\\Client_My_Messenger_save_stabil_version\\Client_My_Messenger\\Client_My_Messenger.csproj": {}
+    "E:\\курсач\\Client_My_Messenger_save_stabil_version\\Client_My_Messenger\\Client_My_Messenger.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hello\\OneDrive\\Рабочий стол\\курсовой\\проект\\Client_My_Messenger_2\\Client_My_Messenger_save_stabil_version_1\\Client_My_Messenger_save_stabil_version\\Client_My_Messenger\\Client_My_Messenger.csproj": {
+    "E:\\курсач\\Client_My_Messenger_save_stabil_version\\Client_My_Messenger\\Client_My_Messenger.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hello\\OneDrive\\Рабочий стол\\курсовой\\проект\\Client_My_Messenger_2\\Client_My_Messenger_save_stabil_version_1\\Client_My_Messenger_save_stabil_version\\Client_My_Messenger\\Client_My_Messenger.csproj",
+        "projectUniqueName": "E:\\курсач\\Client_My_Messenger_save_stabil_version\\Client_My_Messenger\\Client_My_Messenger.csproj",
         "projectName": "Client_My_Messenger",
-        "projectPath": "C:\\Users\\hello\\OneDrive\\Рабочий стол\\курсовой\\проект\\Client_My_Messenger_2\\Client_My_Messenger_save_stabil_version_1\\Client_My_Messenger_save_stabil_version\\Client_My_Messenger\\Client_My_Messenger.csproj",
+        "projectPath": "E:\\курсач\\Client_My_Messenger_save_stabil_version\\Client_My_Messenger\\Client_My_Messenger.csproj",
         "packagesPath": "C:\\Users\\hello\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hello\\OneDrive\\Рабочий стол\\курсовой\\проект\\Client_My_Messenger_2\\Client_My_Messenger_save_stabil_version_1\\Client_My_Messenger_save_stabil_version\\Client_My_Messenger\\obj\\",
+        "outputPath": "E:\\курсач\\Client_My_Messenger_save_stabil_version\\Client_My_Messenger\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -69,7 +68,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

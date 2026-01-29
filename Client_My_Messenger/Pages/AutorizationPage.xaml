@@ -43,14 +43,14 @@
 
                         <!-- Фамилия (только для регистрации) -->
                         <StackPanel x:Name="SurnamePanel" Visibility="Collapsed">
-                            <TextBlock Text="Фамилия"/>
+                            <TextBlock Text="Фамилия*"/>
                             <TextBox x:Name="SurnameText" 
                                      KeyDown="TextBox_KeyDown"/>
                         </StackPanel>
 
                         <!-- Отчество (только для регистрации) -->
                         <StackPanel x:Name="SecondSurnamePanel" Visibility="Collapsed">
-                            <TextBlock Text="Отчество"/>
+                            <TextBlock Text="Отчество*"/>
                             <TextBox x:Name="SecondSurnameText" 
                                      KeyDown="TextBox_KeyDown"/>
                         </StackPanel>
